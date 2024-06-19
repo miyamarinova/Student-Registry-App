@@ -7,7 +7,12 @@ pipeline {
     stages {
         stage('NPM Install') {
             steps {
-                shell 'npm install'
+                sh 'npm install'
+            }
+        }
+        stage('NPM Audit') {
+            steps {
+                sh 'npm audit'
             }
         }
     }
