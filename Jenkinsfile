@@ -20,6 +20,14 @@ pipeline {
                 sh 'npm test'
             }
         }
+        stage('Deploy') {
+            steps {
+                script{
+                    input message: 'Approve deployment?', ok: 'Deploy'
+                }
+                echo 'Deploying'
+            }
+        }
         }
        
     }
