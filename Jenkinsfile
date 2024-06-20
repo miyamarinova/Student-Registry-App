@@ -1,5 +1,8 @@
 pipeline {
     agent any
+     tools {
+        nodejs "nodejs-lts" // name of NodeJS installation in Jenkins
+    }
 
     stages {
          stage('NPM Install') {
