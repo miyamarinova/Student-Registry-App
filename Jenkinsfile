@@ -2,12 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout SCM') {
-            steps {
-                checkout scm
-            }
-        }
-        stage('NPM Install') {
+         stage('NPM Install') {
             steps {
                 sh 'npm install'
             }
@@ -17,5 +12,11 @@ pipeline {
                 sh 'npm audit'
             }
         }
+        stage('Run integration tests') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        }
+       
     }
-}
